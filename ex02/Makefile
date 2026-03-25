@@ -4,7 +4,7 @@ CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 
 # 源文件
-SRCS        = main.cpp ClapTrap.cpp FragTrap.cpp
+SRCS        = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp
 
 # obj 文件夹
 OBJDIR      = obj
