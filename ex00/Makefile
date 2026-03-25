@@ -1,38 +1,42 @@
-
 NAME        = claptrap
 
-# 1. 编译器与选项
 CXX         = c++
-CXXFLAGS    = -Wall -Wextra -Werror  -std=c++98
+CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 
-# 2. 源文件与目标文件
-# 显式列出源文件，避免使用通配符 * 以防误伤当前目录下的其他测试文件
+# 源文件
 SRCS        = main.cpp ClapTrap.cpp
-# 将 .cpp 后缀替换为 .o
-OBJS        = $(SRCS:.cpp=.o)
 
-# 3. 核心规则
-all: $(NAME)
+# obj 文件夹
+OBJDIR      = obj
 
-# 链接阶段：将所有 .o 文件链接成可执行文件
+# 对应 obj 文件夹下的目标文件
+OBJS        = $(SRCS:%.cpp=$(OBJDIR)/%.o)
+
+# 默认规则：先创建 obj 文件夹，再编译
+all: $(OBJDIR) $(NAME)
+
+# 链接可执行文件
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-# 编译阶段：将每个 .cpp 独立编译成 .o
-# $< 是第一个依赖文件 (.cpp)，$@ 是目标文件 (.o)
-%.o: %.cpp
+# 创建 obj 文件夹
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+# 编译规则，把源文件编译到 obj 文件夹
+# | $(OBJDIR) 表示 obj 文件夹作为 order-only 依赖（只需存在，不触发重编译）
+$(OBJDIR)/%.o: %.cpp | $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# 4. 清理规则
+# 清理 obj 文件夹
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJDIR)
 
-# fclean 应该彻底清理，包括生成的二进制文件
+# 完全清理，包括可执行文件
 fclean: clean
 	rm -f $(NAME)
 
 # 重新编译
 re: fclean all
 
-# 防止与同名文件冲突
 .PHONY: all clean fclean re
