@@ -1,19 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: weiyang <weiyang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/26 13:34:49 by weiyang           #+#    #+#             */
+/*   Updated: 2026/03/26 13:34:50 by weiyang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap(): ClapTrap("default")
 {
-	hitPoints = 100;
-	energyPoints = 100;
-	attackDamage = 30;
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
 	std::cout << "FragTrap " << _name << " default constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name)
 	: ClapTrap(name)
 {
-	hitPoints = 100;
-	energyPoints = 100;
-	attackDamage = 30;
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
 	std::cout << "FragTrap " << _name << " constructor called" << std::endl;
 }
 
@@ -44,14 +56,14 @@ void FragTrap::highFivesGuys(void)
 
 void FragTrap::attack(const std::string &target)
 {
-	if (hitPoints <= 0 || energyPoints <= 0)
+	if (_hitPoints <= 0 || _energyPoints <= 0)
 	{
 		std::cout << "FragTrap " << _name << " can't attack" << std::endl;
 		return;
 	}
 
-	energyPoints--;
+	_energyPoints--;
 	std::cout << "FragTrap " << _name << " attacks " << target
-			  << ", causing " << attackDamage << " points of damage!" << std::endl;
+			  << ", causing " << _attackDamage << " points of damage!" << std::endl;
 }
 

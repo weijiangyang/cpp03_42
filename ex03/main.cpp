@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: weiyang <weiyang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/26 13:43:24 by weiyang           #+#    #+#             */
+/*   Updated: 2026/03/26 13:43:25 by weiyang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
@@ -27,19 +39,19 @@ int main()
 
     std::cout << "\n=== DiamondTrap Test ===" << std::endl;
     DiamondTrap d1("DT-One");
-    d1.attack("Target-D");       // DiamondTrap attack
+    d1.attack("Target-D");       
     d1.takeDamage(40);
     d1.beRepaired(20);
-    d1.guardGate();              // from ScavTrap
-    d1.highFivesGuys();          // from FragTrap
-    d1.whoAmI();                 // DiamondTrap special
+    d1.guardGate();              
+    d1.highFivesGuys();       
+    d1.whoAmI();                
 
     std::cout << "\n=== Copy & Assignment Test ===" << std::endl;
-    DiamondTrap d2(d1);          // copy constructor
+    DiamondTrap d2(d1);        
     d2.whoAmI();
     
     DiamondTrap d3;
-    d3 = d1;                     // assignment operator
+    d3 = d1;                 
     d3.whoAmI();
 
     std::cout << "\n=== End of Main ===" << std::endl;
