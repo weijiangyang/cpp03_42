@@ -17,7 +17,7 @@ class ClapTrap
         ClapTrap();                                  // 默认构造函数
         ClapTrap(std::string name);                  // 带参数的构造函数
         ClapTrap(const ClapTrap &other);             // 拷贝构造函数 (Copy Constructor)
-        ~ClapTrap();                                 // 析构函数 (Destructor)
+        virtual ~ClapTrap();                                 // // 确保派生类安全销毁
 
         // --- 运算符重载 ---
         ClapTrap &operator=(const ClapTrap &other);  // 拷贝赋值运算符重载 (Copy Assignment Operator)
