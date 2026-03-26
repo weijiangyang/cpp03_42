@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: weiyang <weiyang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/26 13:17:55 by weiyang           #+#    #+#             */
+/*   Updated: 2026/03/26 13:17:56 by weiyang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 int main()
@@ -16,9 +28,9 @@ int main()
     scav1.guardGate();
 
     std::cout << "\n=== Copy & Assignment test ===" << std::endl;
-    ScavTrap scav2(scav1);   // 拷贝构造
+    ScavTrap scav2(scav1);
     ScavTrap scav3;
-    scav3 = scav1;           // 赋值操作符
+    scav3 = scav1; 
 
     std::cout << "\n=== Destruction test ===" << std::endl;
     return 0;
