@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: weiyang <weiyang@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/26 13:34:57 by weiyang           #+#    #+#             */
+/*   Updated: 2026/03/26 13:35:40 by weiyang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
@@ -24,9 +36,9 @@ int main()
     frag.highFivesGuys();
 
     std::cout << "\n=== Copy & Assignment test ===" << std::endl;
-    FragTrap frag2(frag); // 拷贝构造
+    FragTrap frag2(frag);
     FragTrap frag3;
-    frag3 = frag;          // 赋值操作符
+    frag3 = frag;
 
     std::cout << "\n=== End of main ===" << std::endl;
     return 0;
