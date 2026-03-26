@@ -17,6 +17,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clapname"), ScavT
 	hitPoints = 100;
 	energyPoints = 50;
 	attackDamage = 30;
+	std::cout << "DiamondTrap " << _name << " constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &other)
